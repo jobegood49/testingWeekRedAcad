@@ -22,7 +22,7 @@ describe("repeatedChars", () => {
   describe("when string has consecutive chars a different positions ", () => {
     it("should return chars with concatenated number of times repeated", () => {
       const result = repeatedChars("aaajibbkz");
-      expect(result).toEqual("a3b2");
+      expect(result).toEqual("a3j1i1b2k1z1");
     });
   });
 });
