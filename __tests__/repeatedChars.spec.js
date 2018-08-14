@@ -27,25 +27,32 @@ describe("repeatedChars", () => {
   });
 });
 
-Solution
+// Solution;
 
-describe("when string contains numbers ", () => {
-  it("should throw an error", () => {
-    const result = repeatedChars("a7bcd");
-    expect(result).toEqual(0);
-  });
-});
+// describe("when string contains numbers ", () => {
+//   it("should return 0", () => {
+//     const result = repeatedChars("a7bcd");
+//     expect(result).toEqual(0);
+//   });
+// });
 
-describe("when asked to compress not a string ", () => {
-    it("should throw an error", () => {
-      const result = repeatedChars("420");
-      expect(result).toEqual(0);
-    });
-  });
+// describe("when asked to compress not a string ", () => {
+//   it("should return 0", () => {
+//     const result = repeatedChars("420");
+//     expect(result).toEqual(0);
+//   });
+// });
 
-  describe("when asked to compress not a string ", () => {
-    it("should throw an error", () => {
-      const result = repeatedChars("420");
-      expect(result).toEqual(0);
-    });
-  });
+// describe("when string contains non letters ", () => {
+//   it("should ignore those and count the letters", () => {
+//     const result = repeatedChars("");
+//     expect(result).toEqual(0);
+//   });
+// });
+
+// describe("when string contains repeated chars ", () => {
+//   it("should ignore those and count the letters", () => {
+//     const result = repeatedChars("aabccdaa");
+//     expect(result).toEqual("aabccdaa");
+//   });
+// });
