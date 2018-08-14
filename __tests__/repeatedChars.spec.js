@@ -26,3 +26,26 @@ describe("repeatedChars", () => {
     });
   });
 });
+
+Solution
+
+describe("when string contains numbers ", () => {
+  it("should throw an error", () => {
+    const result = repeatedChars("a7bcd");
+    expect(result).toEqual(0);
+  });
+});
+
+describe("when asked to compress not a string ", () => {
+    it("should throw an error", () => {
+      const result = repeatedChars("420");
+      expect(result).toEqual(0);
+    });
+  });
+
+  describe("when asked to compress not a string ", () => {
+    it("should throw an error", () => {
+      const result = repeatedChars("420");
+      expect(result).toEqual(0);
+    });
+  });
