@@ -33,7 +33,7 @@ describe("oneEditAway", () => {
 
   describe("when more than one letter was edited and added", () => {
     it("should return false", () => {
-      const result = oneEditAway("face", "facts");
+      const result = oneEditAway("face", "factse");
       expect(result).toEqual(false);
     });
   });
