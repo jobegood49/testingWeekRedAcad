@@ -51,30 +51,6 @@ let mockData = [
   }
 ];
 
-// processedData = {
-//   projects: {
-//     project1: {
-//       passed: { number: 10, satisfaction: 10 },
-//       failed: { number: 10, satisfaction: 10 }
-//     }
-//   },
-//   experience: {
-//     1:  10 ,
-//     2:  10 ,
-//     3:  10
-//   },
-//   demographics: {
-//     averageAge: 10,
-//     satisfaction: 10
-//   }
-// };
-
-let processedData = {
-  projects: {},
-  experience: {},
-  demographics: {}
-};
-
 let project = (array, projectName) => {
   let passed = 0;
   let failed = 0;
@@ -105,31 +81,58 @@ let projects = () => {
   };
 };
 
-// console.log(projects());
+let experience = () => {
+  let experience = {};
+  let experienceCount = {};
+  mockData.forEach(element => {
+    if (!experience[element.yearsExperience])
+      experience[element.yearsExperience] = element.satisfaction;
+    else
+      experience[element.yearsExperience] =
+        experience[element.yearsExperience] + element.satisfaction;
+  });
 
-let experience = {};
-let experienceCount = {};
-mockData.forEach(element => {
-  if (!experience[element.yearsExperience])
-    experience[element.yearsExperience] = element.satisfaction;
-  else
-    experience[element.yearsExperience] =
-      experience[element.yearsExperience] + element.satisfaction;
-});
+  mockData.forEach(element => {
+    if (!experienceCount[element.yearsExperience])
+      experienceCount[element.yearsExperience] = 1;
+    else
+      experienceCount[element.yearsExperience] =
+        experienceCount[element.yearsExperience] + 1;
+  });
 
-mockData.forEach(element => {
-  if (!experienceCount[element.yearsExperience])
-    experienceCount[element.yearsExperience] = 1;
-  else
-    experienceCount[element.yearsExperience] =
-      experienceCount[element.yearsExperience] + 1;
-});
+  for (var prop in experience) {
+    experience[prop] = experience[prop] / experienceCount[prop];
+  }
 
-console.log(experience);
-console.log(experienceCount);
+  return experience;
+};
 
-for (var prop in experience) {
-    experience[prop] =  experience[prop]/experienceCount[prop]
-}
+let demographics = () => {
+  let counter = 0;
+  let ageCount = 0;
+  let satifactionCount = 0;
+  mockData.forEach(element => {
+    ageCount += element.age;
+    satifactionCount += element.satisfaction;
+    counter += 1;
+  });
+  return {
+    averageAge: ageCount / counter,
+    satisfaction: satifactionCount / counter
+  };
+};
 
-console.log(experience);
+let processedData = {
+  projects: projects(),
+  experience: experience(),
+  demographics: demographics()
+};
+
+console.log(processedData);
+
+// console.log(processedData.projects.project1);
+// console.log(processedData.projects.project2);
+// console.log(processedData.projects.project3);
+// console.log(processedData.projects.project4);
+// console.log(processedData.experience);
+// console.log(processedData.demographics);

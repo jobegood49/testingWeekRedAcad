@@ -38,7 +38,7 @@ describe("Process Data", () => {
   ];
 
   beforeEach(() => {
-    processedData = processedData(mockData);
+    processedData = processData(mockData);
   });
   describe("Shape of processed dta", () => {
     it("should generate an object with 3 keys", () => {
